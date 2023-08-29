@@ -14,8 +14,8 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler
-    public ResponseEntity<FruitResponse> handleException(FruitException fruitException){
-        FruitResponse response = new FruitResponse(fruitException.getStatus().value(),
+    public ResponseEntity<PlantResponse> handleException(PlantException fruitException){
+        PlantResponse response = new PlantResponse(fruitException.getStatus().value(),
                 fruitException.getMessage(), System.currentTimeMillis());
         return new ResponseEntity<>(response, fruitException.getStatus());
     }
@@ -32,8 +32,8 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler
-    public ResponseEntity<FruitResponse> handleException(Exception exception){
-        FruitResponse response = new FruitResponse(HttpStatus.BAD_REQUEST.value(),
+    public ResponseEntity<PlantResponse> handleException(Exception exception){
+        PlantResponse response = new PlantResponse(HttpStatus.BAD_REQUEST.value(),
                 exception.getMessage(), System.currentTimeMillis());
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }

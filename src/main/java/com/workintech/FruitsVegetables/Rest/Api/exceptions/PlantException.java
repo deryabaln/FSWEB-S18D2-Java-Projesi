@@ -5,10 +5,10 @@ import lombok.Setter;
 import org.springframework.http.HttpStatus;
 @Getter
 @Setter
-public class FruitException extends RuntimeException {
+public class PlantException extends RuntimeException {
     private HttpStatus status;
 
-    public FruitException(String message, HttpStatus status) {
+    public PlantException(String message, HttpStatus status) {
         super(message);
         this.status = status;
     }

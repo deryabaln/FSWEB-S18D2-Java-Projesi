@@ -1,7 +1,7 @@
 package com.workintech.FruitsVegetables.Rest.Api.controller;
 
 import com.workintech.FruitsVegetables.Rest.Api.entity.Fruit;
-import com.workintech.FruitsVegetables.Rest.Api.exceptions.FruitException;
+import com.workintech.FruitsVegetables.Rest.Api.exceptions.PlantException;
 import com.workintech.FruitsVegetables.Rest.Api.services.FruitService;
 import jakarta.validation.constraints.Positive;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class FruitController {
     public Fruit getById(@Positive @PathVariable int id){
         Fruit fruit = fruitService.findById(id);
         if(fruit == null){
-            throw new FruitException("Fruit with given name not exist", HttpStatus.NOT_FOUND);
+            throw new PlantException("Fruit with given id not exist", HttpStatus.NOT_FOUND);
         }
         return fruit;
     }
@@ -60,7 +60,7 @@ public class FruitController {
     public Fruit delete(@PathVariable int id){
         Fruit fruit = fruitService.findById(id);
         if(fruit == null){
-            //TODO throw not found Exception
+            throw new PlantException("Fruit with given id not exist", HttpStatus.NOT_FOUND);
         }
         fruitService.delete(fruit);
         return fruit;

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FruitResponse {
+public class PlantResponse {
     private int status;
     private String message;
     private long timestamp;
